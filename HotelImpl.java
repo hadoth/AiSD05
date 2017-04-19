@@ -150,5 +150,19 @@ public class HotelImpl implements Hotel {
             this.address = address;
             return this;
         }
+
+        public HotelImpl build(){
+            return new HotelImpl(
+                    this.name,
+                    this.address,
+                    this.starRate,
+                    this.hasPool,
+                    this.hasSpa,
+                    this.isConferenceReady,
+                    this.xCoordinate,
+                    this.yCoordinate,
+                    this.bedPrices
+            );
+        }
     }
 }
