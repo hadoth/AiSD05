@@ -23,4 +23,9 @@ public class HotelBuilder {
         this.hasPool = true;
         return this;
     }
+
+    public HotelBuilder withSpa(){
+        this.hasSpa = true;
+        return this;
+    }
 }
