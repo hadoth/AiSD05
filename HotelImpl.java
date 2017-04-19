@@ -71,7 +71,7 @@ public class HotelImpl implements Hotel {
 
     @Override
     public double getPrice(int bedNumber) {
-        return 0;
+        return this.bedPrices.get(bedNumber);
     }
 
     @Override
