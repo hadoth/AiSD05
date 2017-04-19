@@ -53,4 +53,8 @@ public class HotelImpl implements Hotel {
     public int compareTo(Hotel o) {
         return 0;
     }
+
+    public static HotelBuilder build(){
+        return new HotelBuilder();
+    }
 }
