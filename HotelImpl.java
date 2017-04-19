@@ -19,6 +19,8 @@ public class HotelImpl implements Hotel {
     private HotelImpl(){};
 
     private HotelImpl(
+            String name,
+            String address,
             int starRate,
             boolean hasPool,
             boolean hasSpa,
@@ -27,6 +29,8 @@ public class HotelImpl implements Hotel {
             double yCoordinate,
             HashMap<Integer, Double> bedPrices
     ){
+        this.name = name;
+        this.address = address;
         this.starRate = starRate;
         this.userRateSum = 0;
         this.userRateNumber = 0;
