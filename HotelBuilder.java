@@ -33,4 +33,10 @@ public class HotelBuilder {
         this.isConferenceReady = true;
         return this;
     }
+
+    public HotelBuilder withLocation(double xCoordinate, double yCoordinate){
+        this.xCoordinate = xCoordinate;
+        this.yCoordinate = yCoordinate;
+        return this;
+    }
 }
