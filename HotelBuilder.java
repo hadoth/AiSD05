@@ -28,4 +28,9 @@ public class HotelBuilder {
         this.hasSpa = true;
         return this;
     }
+
+    public HotelBuilder withConferenceRoom(){
+        this.isConferenceReady = true;
+        return this;
+    }
 }
