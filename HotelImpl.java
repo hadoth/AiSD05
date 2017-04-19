@@ -14,6 +14,8 @@ public class HotelImpl implements Hotel {
     private double yCoordinate;
     private HashMap<Integer, Double> bedPrices;
 
+    private HotelImpl(){};
+
     @Override
     public int getStars() {
         return 0;
