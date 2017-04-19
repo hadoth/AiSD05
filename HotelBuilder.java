@@ -39,4 +39,9 @@ public class HotelBuilder {
         this.yCoordinate = yCoordinate;
         return this;
     }
+
+    public HotelBuilder withPriceForBed(int numberOfBeds, double price){
+        this.bedPrices.put(numberOfBeds, price);
+        return this;
+    }
 }
