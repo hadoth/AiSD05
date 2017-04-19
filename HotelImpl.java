@@ -41,27 +41,27 @@ public class HotelImpl implements Hotel {
 
     @Override
     public int getStars() {
-        return 0;
+        return this.starRate;
     }
 
     @Override
     public double getUserRating() {
-        return 0;
+        return (1.0*this.userRateSum)/this.userRateNumber;
     }
 
     @Override
     public boolean hasPool() {
-        return false;
+        return this.hasPool;
     }
 
     @Override
     public boolean hasSpa() {
-        return false;
+        return this.hasSpa;
     }
 
     @Override
     public boolean isConferenceReady() {
-        return false;
+        return this.isConferenceReady;
     }
 
     @Override
