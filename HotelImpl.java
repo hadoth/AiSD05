@@ -1,7 +1,19 @@
+import java.util.HashMap;
+
 /**
  * Created by Karol Pokomeda on 2017-04-19.
  */
 public class HotelImpl implements Hotel {
+    private int starRate;
+    private int userRateSum;
+    private int userRateNumber;
+    private boolean hasPool;
+    private boolean hasSpa;
+    private boolean isConferenceReady;
+    private double xCoordinate;
+    private double yCoordinate;
+    private HashMap<Integer, Double> bedPrices;
+
     @Override
     public int getStars() {
         return 0;
