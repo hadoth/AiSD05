@@ -108,6 +108,7 @@ public class HotelImpl implements Hotel {
         private double yCoordinate;
         private HashMap<Integer, Double> bedPrices = new HashMap<>();
         private String name;
+        private String address;
 
         public HotelBuilder withStarRate(int starRate){
             this.starRate = starRate;
@@ -145,6 +146,9 @@ public class HotelImpl implements Hotel {
             return this;
         }
 
-
+        public HotelBuilder withAddress(String address){
+            this.address = address;
+            return this;
+        }
     }
 }
