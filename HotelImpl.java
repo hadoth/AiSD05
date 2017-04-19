@@ -4,6 +4,8 @@ import java.util.HashMap;
  * Created by Karol Pokomeda on 2017-04-19.
  */
 public class HotelImpl implements Hotel {
+    private String name;
+    private String address;
     private int starRate;
     private int userRateSum;
     private int userRateNumber;
@@ -81,6 +83,14 @@ public class HotelImpl implements Hotel {
 
     public static HotelBuilder build(){
         return new HotelBuilder();
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getAddress() {
+        return this.address;
     }
 
     public static class HotelBuilder {
