@@ -2,6 +2,8 @@
  * Created by Karol Pokomeda on 2017-04-13.
  */
 public interface Hotel extends Comparable<Hotel> {
+    String getName();
+    String getAddress();
     int getStars();
     double getUserRating();
     boolean hasPool();
