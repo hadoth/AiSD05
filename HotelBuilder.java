@@ -18,4 +18,9 @@ public class HotelBuilder {
         this.starRate = starRate;
         return this;
     }
+
+    public HotelBuilder withPool(){
+        this.hasPool = true;
+        return this;
+    }
 }
