@@ -13,4 +13,9 @@ public class HotelBuilder {
     private double xCoordinate;
     private double yCoordinate;
     private HashMap<Integer, Double> bedPrices = new HashMap<>();
+
+    public HotelBuilder withStarRate(int starRate){
+        this.starRate = starRate;
+        return this;
+    }
 }
