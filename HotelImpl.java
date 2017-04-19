@@ -16,6 +16,29 @@ public class HotelImpl implements Hotel {
 
     private HotelImpl(){};
 
+    private HotelImpl(
+            int starRate,
+            boolean hasPool,
+            boolean hasSpa,
+            boolean isConferenceReady,
+            double xCoordinate,
+            double yCoordinate,
+            HashMap<Integer, Double> bedPrices
+    ){
+        this.starRate = starRate;
+        this.userRateSum = 0;
+        this.userRateNumber = 0;
+        this.hasPool= hasPool;
+        this.hasSpa = hasSpa;
+        this.isConferenceReady = isConferenceReady;
+        this.xCoordinate = xCoordinate;
+        this.yCoordinate = yCoordinate;
+        this.bedPrices = new HashMap<>();
+        for (Integer bedNumber : bedPrices.keySet()){
+            this.bedPrices.put(bedNumber, bedPrices.get(bedNumber));
+        }
+    }
+
     @Override
     public int getStars() {
         return 0;
