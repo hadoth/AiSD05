@@ -5,7 +5,7 @@ import java.util.HashMap;
  */
 public class HotelImpl implements Hotel {
     private String name;
-    private String address;
+    private String address; //TODO: address could be refactored to Address class
     private int starRate;
     private int userRateSum;
     private int userRateNumber;
@@ -15,6 +15,8 @@ public class HotelImpl implements Hotel {
     private double xCoordinate;
     private double yCoordinate;
     private HashMap<Integer, Double> bedPrices;
+    // Money saved as double only for purpouses of this exercise
+    // Very risky in any production code
 
     private HotelImpl(){};
 
@@ -72,7 +74,7 @@ public class HotelImpl implements Hotel {
 
     @Override
     public double getDistanceFrom(double xCoordinate, double yCoordinate) {
-        return 0;
+        return 0; //TODO: implement
     }
 
     @Override
@@ -81,20 +83,24 @@ public class HotelImpl implements Hotel {
     }
 
     @Override
-    public int compareTo(Hotel o) {
-        return 0;
-    }
-
-    public static HotelBuilder build(){
-        return new HotelBuilder();
-    }
-
     public String getName() {
         return this.name;
     }
 
+    @Override
     public String getAddress() {
         return this.address;
+    }
+
+    @Override
+    public int compareTo(Hotel otherHotel) {
+        int result;
+        if ((result = this.name.compareTo(otherHotel.getName())) != 0) return result;
+        else return this.address.compareTo(otherHotel.getAddress());
+    }
+
+    public static HotelBuilder build(){
+        return new HotelBuilder();
     }
 
     public static class HotelBuilder {
