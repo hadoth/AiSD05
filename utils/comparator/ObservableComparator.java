@@ -36,6 +36,6 @@ public class ObservableComparator<T> implements Comparator<T>, Observable {
 
     @Override
     public void notifyObservers(SortingEvent event) {
-
+        for (Observer observer : this.observers) observer.update(event);
     }
 }
