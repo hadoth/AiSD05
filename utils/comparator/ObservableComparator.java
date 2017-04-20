@@ -19,7 +19,9 @@ public class ObservableComparator<T> implements Comparator<T>, Observable {
 
     @Override
     public int compare(T tLeft, T tRight) {
-        return 0;
+        int result = this.internalComparator.compare(tLeft, tRight);
+        this.notifyObservers(SortingEvent.COMPARE);
+        return result;
     }
 
     @Override
