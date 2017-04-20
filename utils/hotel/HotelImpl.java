@@ -1,3 +1,5 @@
+package utils.hotel;
+
 import java.util.HashMap;
 
 /**

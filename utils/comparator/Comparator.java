@@ -1,4 +1,4 @@
-package comparator;
+package utils.comparator;
 
 /**
  * Created by Karol Pokomeda on 2017-04-20.
