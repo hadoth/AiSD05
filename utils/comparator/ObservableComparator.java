@@ -26,12 +26,12 @@ public class ObservableComparator<T> implements Comparator<T>, Observable {
 
     @Override
     public boolean addObserver(Observer observer) {
-        return false;
+        return this.observers.add(observer);
     }
 
     @Override
     public boolean deleteObserver(Observer observer) {
-        return false;
+        return this.observers.remove(observer);
     }
 
     @Override
