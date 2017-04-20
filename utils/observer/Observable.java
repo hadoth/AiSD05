@@ -7,4 +7,9 @@ public interface Observable {
     boolean addObserver(Observer observer);
     boolean deleteObserver (Observer observer);
     void notifyObservers(SortingEvent event);
+
+    public enum SortingEvent {
+        COMPARE,
+        SWAP;
+    }
 }
