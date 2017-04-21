@@ -3,7 +3,7 @@ package utils.comparator;
 /**
  * Created by Karol Pokomeda on 2017-04-21.
  */
-public class ReverseComparator<T extends Comparable<T>> implements Comparator<T> {
+public class ReverseComparator<T> implements Comparator<T> {
     private Comparator<T> internalComparator;
 
     public ReverseComparator(Comparator<T> internalComparator){
