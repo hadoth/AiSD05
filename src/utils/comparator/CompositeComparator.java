@@ -6,9 +6,9 @@ import java.util.List;
  * Created by Karol Pokomeda on 2017-04-21.
  */
 public class CompositeComparator<T> implements Comparator<T> {
-    private List<Comparator<T>> internalComparators;
+    private List<? extends Comparator<T>> internalComparators;
 
-    public CompositeComparator(List<Comparator<T>> internalComparators){
+    public CompositeComparator(List<? extends Comparator<T>> internalComparators){
         this.internalComparators = internalComparators;
     }
 

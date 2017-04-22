@@ -6,8 +6,9 @@ import utils.comparator.Comparator;
 /**
  * Created by Karol on 2017-04-22.
  */
-public abstract class HotelComparator implements Comparator<Hotel> {
+public interface HotelComparator extends Comparator<Hotel> {
 
-    @Override
-    public abstract int compare(Hotel left, Hotel right);
+    static HotelComparatorBuilder builder(){
+        return new HotelComparatorBuilder();
+    }
 }
