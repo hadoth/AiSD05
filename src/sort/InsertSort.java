@@ -19,7 +19,7 @@ public class InsertSort<T> implements ListSorter<T> {
     public List<T> sort(List<T> list) {
         List<T> temp = null;
         try {
-            temp = list.getClass().getDeclaredConstructor(list.getClass()).newInstance(list);
+            temp = list.getClass().getDeclaredConstructor(list.getClass()).newInstance(list); //http://stackoverflow.com/a/34202075/6808086
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
