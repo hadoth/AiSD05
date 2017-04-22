@@ -3,6 +3,7 @@ package bootstrap;
 import sort.BubbleSort;
 import sort.InsertSort;
 import sort.ListSorter;
+import sort.SelectSort;
 import utils.Benchmark;
 import utils.comparator.NaturalComparator;
 import utils.comparator.ObservableComparator;
@@ -22,7 +23,7 @@ public class ListFiveExOneTest {
         NaturalComparator<Integer> comparator = new NaturalComparator<>();
         ObservableComparator<Integer> observableComparator = new ObservableComparator<>(comparator);
 
-        int counter = 20;
+        int counter = 38000;
 
         List<Integer> listToSort = new ArrayList<>();
         for (int i = 0; i < counter; i++) listToSort.add((int) (Math.random() * 10 * counter));
@@ -33,7 +34,7 @@ public class ListFiveExOneTest {
 
         System.out.println(Arrays.toString(listToSort.toArray()));
 
-        ListSorter<Integer> sortingAlgorithm = new BubbleSort<>(observableComparator);
+        ListSorter<Integer> sortingAlgorithm = new SelectSort<>(observableComparator);
         sortingAlgorithm.sort(observableList);
 
         System.out.println(sorterBenchmark.report());
