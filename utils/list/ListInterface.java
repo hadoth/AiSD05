@@ -84,4 +84,6 @@ public interface ListInterface<T> extends Iterable<T> {
      * Method clears the content of the list
      */
     void clear();
+
+    ListInterface<T> copy();
 }
