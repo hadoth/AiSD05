@@ -11,4 +11,6 @@ public interface HotelComparator extends Comparator<Hotel> {
     static HotelComparatorBuilder builder(){
         return new HotelComparatorBuilder();
     }
+
+    //TODO: make this abstract class and add to HotelComparators
 }
