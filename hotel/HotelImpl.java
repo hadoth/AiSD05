@@ -1,4 +1,4 @@
-package utils.hotel;
+package hotel;
 
 import java.util.HashMap;
 

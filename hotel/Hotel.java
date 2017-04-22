@@ -1,4 +1,4 @@
-package utils.hotel;
+package hotel;
 
 /**
  * Created by Karol Pokomeda on 2017-04-13.
