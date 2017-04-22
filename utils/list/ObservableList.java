@@ -31,7 +31,7 @@ public class ObservableList<T> implements Observable, List<T> {
 
     @Override
     public void notifyObservers(SortingEvent event) {
-        for (Observer observer : this.observerList) observer.notify();
+        for (Observer observer : this.observerList) observer.update(event);
     }
 
     @Override
@@ -46,7 +46,9 @@ public class ObservableList<T> implements Observable, List<T> {
 
     @Override
     public boolean add(T t) {
-        return this.internalList.add(t);
+        boolean result = this.internalList.add(t);
+        if (result) this.notifyObservers(SortingEvent.ADD);
+        return result;
     }
 
     @Override
@@ -61,17 +63,22 @@ public class ObservableList<T> implements Observable, List<T> {
 
     @Override
     public T set(int index, T element) {
-        return this.internalList.set(index, element);
+        T result = this.internalList.set(index, element);
+        this.notifyObservers(SortingEvent.SET);
+        return result;
     }
 
     @Override
     public void add(int index, T element) {
         this.internalList.add(index, element);
+        this.notifyObservers(SortingEvent.ADD);
     }
 
     @Override
     public T remove(int index) {
-        return this.internalList.remove(index);
+        T result = this.internalList.remove(index);
+        this.notifyObservers(SortingEvent.REMOVE);
+        return result;
     }
 
     @Override
@@ -103,7 +110,9 @@ public class ObservableList<T> implements Observable, List<T> {
 
     @Override
     public boolean remove(Object o) {
-        return this.internalList.remove(o);
+        boolean result = this.internalList.remove(o);
+        if (result) this.notifyObservers(SortingEvent.REMOVE);
+        return result;
     }
 
     @Override

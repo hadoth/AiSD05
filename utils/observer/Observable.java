@@ -10,6 +10,8 @@ public interface Observable {
 
     public enum SortingEvent {
         COMPARE,
-        CHANGE;
+        ADD,
+        REMOVE,
+        SET;
     }
 }

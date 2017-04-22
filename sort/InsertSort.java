@@ -1,9 +1,7 @@
 package sort;
 
-import internaltest.TestClass;
 import utils.comparator.Comparator;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -28,6 +26,12 @@ public class InsertSort<T> implements ListSorter<T> {
     }
 
     private static <T> void insertInOrder(List<T> list, T t, Comparator<T> comparator){
-
+        for (int i = 0; i < list.size(); i++){
+            if (comparator.compare(t, list.get(i)) >= 0){
+                list.add(i, t);
+                return;
+            }
+        }
+        list.add(t);
     }
 }

@@ -21,8 +21,10 @@ public class BubbleSort<T> implements ListSorter<T> {
         while (!isSorted){
             isSorted = true;
             for (int i = 0; i < list.size()-j; i++){
-                if (this.comparator.compare(list.get(i), list.get(i+1)) > 0) swap(list, i, i+1);
-                isSorted = false;
+                if (this.comparator.compare(list.get(i), list.get(i+1)) > 0) {
+                    swap(list, i, i+1);
+                    isSorted = false;
+                }
             }
             j++;
         }
