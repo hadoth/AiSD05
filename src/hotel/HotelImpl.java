@@ -76,7 +76,16 @@ public class HotelImpl implements Hotel {
 
     @Override
     public double getDistanceFrom(double xCoordinate, double yCoordinate) {
-        return 0; //TODO: implement
+        double radXCoord1 = Math.toRadians(this.xCoordinate);
+        double radXcoord2 = Math.toRadians(xCoordinate);
+        double deltaRadX = Math.toRadians(xCoordinate - this.xCoordinate);
+        double deltaRadY = Math.toRadians(yCoordinate - this.yCoordinate);
+        double a = Math.sin(deltaRadX/2) * Math.sin(deltaRadX/2) +
+                Math.cos(radXCoord1) * Math.cos(radXcoord2) *
+                Math.sin(deltaRadY/2) * Math.sin(deltaRadY/2); //http://www.movable-type.co.uk/
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        double d = 6371*c;
+        return d;
     }
 
     @Override
