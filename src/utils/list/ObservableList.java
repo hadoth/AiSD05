@@ -4,6 +4,7 @@ import utils.observer.Observable;
 import utils.observer.Observer;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 /**
@@ -16,6 +17,10 @@ public class ObservableList<T> implements Observable, List<T> {
     public ObservableList(List<T> internalList) {
         this.observerList = new ArrayList<>();
         this.internalList = internalList;
+    }
+    public ObservableList(ObservableList<T> listToCopy){
+        this.observerList = listToCopy.observerList;
+        this.internalList = listToCopy.internalList.stream().collect(Collectors.toList());
     }
 
     @Override
