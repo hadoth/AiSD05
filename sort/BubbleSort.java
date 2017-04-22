@@ -1,7 +1,8 @@
 package sort;
 
 import utils.comparator.Comparator;
-import utils.list.MyList;
+
+import java.util.List;
 
 /**
  * Created by Karol Pokomeda on 2017-04-21.
@@ -14,7 +15,7 @@ public class BubbleSort<T> implements ListSorter<T> {
     }
 
     @Override
-    public MyList<T> sort(MyList<T> list) {
+    public List<T> sort(List<T> list) {
         boolean isSorted  = false;
         int j = 1;
         while (!isSorted){
@@ -28,9 +29,9 @@ public class BubbleSort<T> implements ListSorter<T> {
         return list;
     }
 
-    private static <T> void swap(MyList<T> list, int left, int right){
+    private static <T> void swap(List<T> list, int left, int right){
         T leftElem = list.get(left);
-        list.set(list.get(right), left);
-        list.set(leftElem, right);
+        list.set(left, list.get(right));
+        list.set(right, leftElem);
     }
 }
