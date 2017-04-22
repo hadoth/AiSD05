@@ -1,10 +1,10 @@
 package sort;
 
-import utils.list.MyList;
+import utils.list.SwapList;
 
 /**
  * Created by Karol Pokomeda on 2017-04-20.
  */
 public interface ListSorter<T> {
-    MyList<T> sort (MyList<T> list);
+    SwapList<T> sort (SwapList<T> list);
 }
