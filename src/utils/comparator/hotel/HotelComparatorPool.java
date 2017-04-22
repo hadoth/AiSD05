@@ -5,9 +5,9 @@ import hotel.Hotel;
 /**
  * Created by Karol on 2017-04-22.
  */
-public class HotelComparatorConference extends HotelComparator {
+public class HotelComparatorPool extends HotelComparator {
     @Override
     public int compare(Hotel left, Hotel right) {
-        return Boolean.valueOf(left.isConferenceReady()).compareTo(right.isConferenceReady());
+        return Boolean.valueOf(left.hasPool()).compareTo(right.hasPool());
     }
 }
