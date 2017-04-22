@@ -1,7 +1,9 @@
 package utils.comparator.hotel;
 
 import hotel.Hotel;
+import utils.comparator.Comparator;
 import utils.comparator.CompositeComparator;
+import utils.comparator.ReverseComparator;
 
 import java.util.ArrayList;
 
@@ -9,7 +11,7 @@ import java.util.ArrayList;
  * Created by Karol on 2017-04-22.
  */
 public class HotelComparatorBuilder {
-    private ArrayList<HotelComparator> internalComparators;
+    private ArrayList<Comparator<Hotel>> internalComparators;
 
     public HotelComparatorBuilder withBedPriceComparator(int numberOfBeds){
         this.internalComparators.add(new HotelComparatorBedPrice(numberOfBeds));
@@ -46,7 +48,7 @@ public class HotelComparatorBuilder {
         return this;
     }
 
-    public CompositeComparator<Hotel> build(){
+    public Comparator<Hotel> build(){
         return new CompositeComparator<Hotel>(this.internalComparators);
     }
 }

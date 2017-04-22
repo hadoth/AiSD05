@@ -1,11 +1,13 @@
 package utils.comparator.hotel;
 
 import hotel.Hotel;
+import utils.comparator.Comparator;
+
 
 /**
  * Created by Karol on 2017-04-22.
  */
-public class HotelComparatorBedPrice implements HotelComparator {
+public class HotelComparatorBedPrice implements Comparator<Hotel> {
     private int bedNumber;
 
     public HotelComparatorBedPrice(int bedNumber){
