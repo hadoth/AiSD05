@@ -22,7 +22,7 @@ public class ListFiveExOneTest {
         NaturalComparator<Integer> comparator = new NaturalComparator<>();
         ObservableComparator<Integer> observableComparator = new ObservableComparator<>(comparator);
 
-        int counter = 10;
+        int counter = 20;
 
         List<Integer> listToSort = new ArrayList<>();
         for (int i = 0; i < counter; i++) listToSort.add((int) (Math.random() * 10 * counter));
@@ -31,10 +31,11 @@ public class ListFiveExOneTest {
         observableComparator.addObserver(sorterBenchmark);
         observableList.addObserver(sorterBenchmark);
 
-        ListSorter<Integer> sortingAlgorithm = new InsertSort<>(observableComparator);
+        System.out.println(Arrays.toString(listToSort.toArray()));
+
+        ListSorter<Integer> sortingAlgorithm = new BubbleSort<>(observableComparator);
         sortingAlgorithm.sort(observableList);
 
-        System.out.println(Arrays.toString(listToSort.toArray()));
         System.out.println(sorterBenchmark.report());
         System.out.println(Arrays.toString(listToSort.toArray()));
     }
