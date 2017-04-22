@@ -5,7 +5,7 @@ import hotel.Hotel;
 /**
  * Created by Karol on 2017-04-22.
  */
-public class HotelComparatorUserRating  extends HotelComparator {
+public class HotelComparatorUserRating implements HotelComparator {
 
     @Override
     public int compare(Hotel left, Hotel right) {

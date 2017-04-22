@@ -5,7 +5,7 @@ import hotel.Hotel;
 /**
  * Created by Karol on 2017-04-22.
  */
-public class HotelComparatorBedPrice  extends HotelComparator {
+public class HotelComparatorBedPrice implements HotelComparator {
     private int bedNumber;
 
     public HotelComparatorBedPrice(int bedNumber){

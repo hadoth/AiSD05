@@ -2,10 +2,8 @@ package utils.comparator.hotel;
 
 import hotel.Hotel;
 import utils.comparator.CompositeComparator;
-import utils.comparator.ReverseComparator;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 /**
  * Created by Karol on 2017-04-22.
