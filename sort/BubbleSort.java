@@ -31,6 +31,11 @@ public class BubbleSort<T> implements ListSorter<T> {
         return list;
     }
 
+    @Override
+    public String getName() {
+        return "Bubble Sort";
+    }
+
     private static <T> void swap(List<T> list, int left, int right){
         T leftElem = list.get(left);
         list.set(left, list.get(right));

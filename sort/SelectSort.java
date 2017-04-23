@@ -34,6 +34,11 @@ public class SelectSort<T> implements ListSorter<T> {
         return list;
     }
 
+    @Override
+    public String getName() {
+        return "Select Sort";
+    }
+
     private static <T> void swap(List<T> list, int left, int right){
         T leftElem = list.get(left);
         list.set(left, list.get(right));

@@ -36,6 +36,11 @@ public class InsertSort<T> implements ListSorter<T> {
         return list;
     }
 
+    @Override
+    public String getName() {
+        return "Insert Sort";
+    }
+
     private static <T> void insertInOrder(List<T> list, T t, Comparator<T> comparator){
         for (int i = 0; i < list.size(); i++){
             if (comparator.compare(t, list.get(i)) <= 0){
