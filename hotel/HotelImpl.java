@@ -22,7 +22,7 @@ public class HotelImpl implements Hotel {
 
     private HotelImpl(){};
 
-    private HotelImpl(
+    public HotelImpl(
             String name,
             String address,
             int starRate,
@@ -110,8 +110,25 @@ public class HotelImpl implements Hotel {
         else return this.address.compareTo(otherHotel.getAddress());
     }
 
+    public void rate(int rating){
+        this.userRateSum += rating;
+        this.userRateNumber ++;
+    }
     public static HotelBuilder build(){
         return new HotelBuilder();
+    }
+
+    public String toString(){
+        return this.name + "; " +
+                this.address + "; " +
+                this.xCoordinate + ";" +
+                this.yCoordinate + ";" +
+                this.bedPrices.toString() + ";" +
+                this.getUserRating() + ";" +
+                this.starRate + ";" +
+                this.hasSpa + ";" +
+                this.hasPool + ";" +
+                this.isConferenceReady + ";";
     }
 
     public static class HotelBuilder {
