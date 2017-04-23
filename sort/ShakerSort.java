@@ -1,0 +1,60 @@
+package sort;
+
+import sun.security.provider.SHA;
+import utils.comparator.Comparator;
+
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Created by Karol Pokomeda on 2017-04-23.
+ */
+public class ShakerSort<T> implements ListSorter<T> {
+    private Comparator<T> comparator;
+
+    public ShakerSort(Comparator<T> comparator){
+        this.comparator = comparator;
+    }
+
+    @Override
+    public List<T> sort(List<T> list) {
+        boolean isSorted  = false;
+        int bottomBound = 0;
+        int topBound = list.size();
+        while (!isSorted){
+            isSorted = true;
+            for (int i = bottomBound; i < topBound-1; i++){
+                if (this.comparator.compare(list.get(i), list.get(i+1)) > 0) {
+                    swap(list, i, i+1);
+                    isSorted = false;
+                }
+            }
+            topBound--;
+            for (int i = topBound; i > bottomBound; i--){
+                if (this.comparator.compare(list.get(i-1), list.get(i)) > 0) {
+                    swap(list, i, i-1);
+                    isSorted = false;
+                }
+            }
+            bottomBound++;
+            System.out.println(Arrays.toString(list.toArray()));
+        }
+        return list;
+    }
+
+    @Override
+    public void setComparator(Comparator<T> comparator) {
+        this.comparator = comparator;
+    }
+
+    @Override
+    public String getName() {
+        return "Shaker Sort";
+    }
+
+    private static <T> void swap(List<T> list, int left, int right){
+        T leftElem = list.get(left);
+        list.set(left, list.get(right));
+        list.set(right, leftElem);
+    }
+}
