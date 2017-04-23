@@ -22,14 +22,14 @@ public class ListFiveExOneTest {
 
         NaturalComparator<Integer> comparator = new NaturalComparator<>();
 
-        int counter = 38000;
+        int counter = 100;
 
         List<Integer> listToSort = new ArrayList<>();
         for (int i = 0; i < counter; i++) listToSort.add((int) (Math.random() * 10 * counter));
 
         System.out.println(Arrays.toString(listToSort.toArray()));
 
-        sorterBenchmark.evaluate(new BubbleSort<Integer>(comparator), comparator, listToSort);
+        sorterBenchmark.evaluate(new BubbleSort<>(comparator), comparator, listToSort);
 
         System.out.println(sorterBenchmark.report());
         System.out.println(Arrays.toString(listToSort.toArray()));

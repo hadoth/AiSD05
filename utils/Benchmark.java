@@ -77,7 +77,7 @@ public class Benchmark implements Observer {
     }
 
     public String report(){
-        return "Data description:\t\t\t" + this.dataName +
+        return "Data description:\t\t" + this.dataName +
                 "\nSorter name:\t\t\t" + this.sorterName +
                 "\nnumber of swaps:\t\t" + this.concatenate(this.changeMilCounter, this.changeCounter/2)+
                 "\nnumber of comparisons:\t" + this.concatenate(this.compareMilCounter, this.compareCounter);

@@ -4,7 +4,7 @@ package utils.datamaker;
  * Created by Karol Pokomeda on 2017-04-23.
  */
 public enum DataType {
-    SORTED{
+    SORTED("SORTED"){
         @Override
         public int[] generate(int number, boolean isAscending) {
             int[] result = new int[number];
@@ -24,7 +24,7 @@ public enum DataType {
             return result;
         }
     },
-    ALMOST_SORTED {
+    ALMOST_SORTED("ALMOST_SORTED"){
         @Override
         public int[] generate(int number, boolean isAscending) {
             int[] result = SORTED.generate(number, isAscending);
@@ -37,7 +37,7 @@ public enum DataType {
             return result;
         }
     },
-    STAIRS {
+    STAIRS("STAIRS"){
         @Override
         public int[] generate(int number, boolean isAscending) {
             int[] result = new int[number];
@@ -62,7 +62,7 @@ public enum DataType {
             return result;
         }
     },
-    FULLY_RANDOM {
+    FULLY_RANDOM("FULLY_RANDOM"){
         @Override
         public int[] generate(int number, boolean isAscending) {
             int[] result = new int[number];
@@ -70,7 +70,7 @@ public enum DataType {
             return result;
         }
     },
-    CONST {
+    CONST("CONST"){
         @Override
         public int[] generate(int number, boolean isAscending) {
             int[] result = new int[number];
@@ -79,5 +79,10 @@ public enum DataType {
         }
     };
 
+    DataType(String name){
+        this.name = name;
+    }
+    private String name;
+    public String getName(){return this.name;}
     public abstract int[] generate(int number, boolean isAscending);
 }
