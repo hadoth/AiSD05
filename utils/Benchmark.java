@@ -50,6 +50,7 @@ public class Benchmark implements Observer {
 
         sorter.setComparator(internalComparator);
         sorter.sort(internalList);
+        Benchmark.assertSorted(internalList, comparator);
         this.sorterName = sorter.getName();
     }
 
@@ -107,5 +108,11 @@ public class Benchmark implements Observer {
             throw new IllegalArgumentException("File not found or data corrupted");
         }
         return result;
+    }
+
+    public static  <T> void assertSorted(List<T> listToCheck, Comparator<T> template){
+        for (int i = 1; i < listToCheck.size(); i++){
+            if (template.compare(listToCheck.get(i-1), listToCheck.get(i)) > 0) throw new AssertionError();
+        }
     }
 }
