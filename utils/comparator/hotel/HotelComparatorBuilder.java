@@ -13,6 +13,10 @@ import java.util.ArrayList;
 public class HotelComparatorBuilder {
     private ArrayList<Comparator<Hotel>> internalComparators;
 
+    public HotelComparatorBuilder(){
+        this.internalComparators = new ArrayList<>();
+    }
+
     public HotelComparatorBuilder withBedPriceComparator(int numberOfBeds){
         this.internalComparators.add(new HotelComparatorBedPrice(numberOfBeds));
         return this;

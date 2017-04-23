@@ -121,14 +121,14 @@ public class HotelImpl implements Hotel {
     public String toString(){
         return this.name + "; " +
                 this.address + "; " +
+                this.starRate + ";" +
+                this.getUserRating() + ";" +
+                this.hasPool + ";" +
+                this.hasSpa + ";" +
+                this.isConferenceReady + ";" +
                 this.xCoordinate + ";" +
                 this.yCoordinate + ";" +
-                this.bedPrices.toString() + ";" +
-                this.getUserRating() + ";" +
-                this.starRate + ";" +
-                this.hasSpa + ";" +
-                this.hasPool + ";" +
-                this.isConferenceReady + ";";
+                this.bedPrices.toString() + ";";
     }
 
     public static class HotelBuilder {

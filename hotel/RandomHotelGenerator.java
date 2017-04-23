@@ -36,7 +36,6 @@ public class RandomHotelGenerator {
                 for (int i = (int)(Math.random()*20); i > 0; i--){
                     nextHotel.rate((int)(Math.random()*5)+1);
                 }
-                System.out.println(nextHotel);
                 result.add(nextHotel);
             }
         } catch (IOException e){
