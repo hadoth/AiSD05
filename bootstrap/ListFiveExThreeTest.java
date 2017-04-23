@@ -2,27 +2,38 @@ package bootstrap;
 
 import sort.ListSorter;
 import sort.ShakerSort;
+import utils.Benchmark;
 import utils.comparator.NaturalComparator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Karol Pokomeda on 2017-04-23.
  */
 public class ListFiveExThreeTest {
     public static void main(String[] args){
-        int numberOfElements = 50;
+        int numberOfElements = 1000;
 
-        ArrayList<Integer> listToSort = new ArrayList<>();
+        ArrayList<Integer> listToSort;
+        for (int i = 0; i < numberOfElements; i++) {
+            listToSort = new ArrayList<>();
 
-        for (int i = 0; i < 50; i++) listToSort.add((int)(Math.random()*numberOfElements));
+            for (int j = 0; j < numberOfElements; j++) listToSort.add((int) (Math.random() * numberOfElements * 2));
 
-        ListSorter<Integer> sorter = new ShakerSort<>(new NaturalComparator<>());
+            ListSorter<Integer> sorter = new ShakerSort<>(new NaturalComparator<Integer>());
 
-        ListFiveExTwoTest.showList(listToSort);
+//        System.out.println(Arrays.toString(listToSort.toArray()));
 
-        sorter.sort(listToSort);
+            Benchmark benchmark = new Benchmark();
 
-        ListFiveExTwoTest.showList(listToSort);
+            benchmark.evaluate(sorter, new NaturalComparator<Integer>(), listToSort);
+
+            System.out.println(benchmark.report());
+
+            Benchmark.assertSorted(listToSort, new NaturalComparator<Integer>());
+
+//        System.out.println(Arrays.toString(listToSort.toArray()));
+        }
     }
 }

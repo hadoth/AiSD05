@@ -1,6 +1,5 @@
 package sort;
 
-import sun.security.provider.SHA;
 import utils.comparator.Comparator;
 
 import java.util.Arrays;
@@ -20,24 +19,27 @@ public class ShakerSort<T> implements ListSorter<T> {
     public List<T> sort(List<T> list) {
         boolean isSorted  = false;
         int bottomBound = 0;
+        int lastSwapDown= 0;
+        int lastSwapUp = bottomBound;
         int topBound = list.size();
         while (!isSorted){
             isSorted = true;
-            for (int i = bottomBound; i < topBound-1; i++){
+            for (int i = lastSwapDown; i < topBound-1; i++){
                 if (this.comparator.compare(list.get(i), list.get(i+1)) > 0) {
                     swap(list, i, i+1);
                     isSorted = false;
+                    lastSwapUp = i;
                 }
             }
             topBound--;
-            for (int i = topBound; i > bottomBound; i--){
+            for (int i = lastSwapUp; i > bottomBound; i--){
                 if (this.comparator.compare(list.get(i-1), list.get(i)) > 0) {
                     swap(list, i, i-1);
                     isSorted = false;
+                    lastSwapDown = i;
                 }
             }
             bottomBound++;
-            System.out.println(Arrays.toString(list.toArray()));
         }
         return list;
     }
