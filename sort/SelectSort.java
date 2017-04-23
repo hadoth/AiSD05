@@ -35,6 +35,11 @@ public class SelectSort<T> implements ListSorter<T> {
     }
 
     @Override
+    public void setComparator(utils.comparator.Comparator<T> comparator) {
+        this.comparator = comparator;
+    }
+
+    @Override
     public String getName() {
         return "Select Sort";
     }

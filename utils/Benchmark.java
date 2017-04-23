@@ -1,7 +1,14 @@
 package utils;
 
+import sort.ListSorter;
+import utils.comparator.Comparator;
+import utils.comparator.ObservableComparator;
+import utils.list.ObservableList;
 import utils.observer.Observable;
 import utils.observer.Observer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Karol Pokomeda on 2017-04-22.
@@ -11,13 +18,44 @@ public class Benchmark implements Observer {
     private int compareMilCounter;
     private int changeCounter;
     private int changeMilCounter;
+    private String sorterName;
+    private String dataName;
 
     public Benchmark(){
+        this.clear();
+    }
 
+    public<T> void evaluate(ListSorter<T> sorter, Comparator<T> comparator, List<T> list){
+        ObservableList<T> internalList = new ObservableList<>(list);
+        this.evaluateInternally(sorter, comparator, internalList);
+        this.dataName = "UNDEFINED";
+    }
+
+    public void evaluate(ListSorter<Integer> sorter, Comparator<Integer> comparator, String filePath){
+        ObservableList<Integer> internalList = new ObservableList<>(this.loadList(filePath));
+        this.evaluateInternally(sorter, comparator, internalList);
+        this.dataName = filePath.replace(".csv", "");
+    }
+
+    private <T> void evaluateInternally(ListSorter<T> sorter, Comparator<T> comparator, ObservableList<T> internalList){
+        this.clear();
+        ObservableComparator<T> internalComparator = new ObservableComparator<>(comparator);
+
+        internalComparator.addObserver(this);
+        internalList.addObserver(this);
+
+        sorter.setComparator(internalComparator);
+        sorter.sort(internalList);
+        this.sorterName = sorter.getName();
+    }
+
+    private void clear(){
         this.compareCounter = 0;
         this.compareMilCounter = 0;
         this.changeCounter = 0;
         this.changeMilCounter = 0;
+        this.dataName = null;
+        this.sorterName = null;
     }
 
     @Override
@@ -39,7 +77,9 @@ public class Benchmark implements Observer {
     }
 
     public String report(){
-        return "number of swaps:\t\t" + this.concatenate(this.changeMilCounter, this.changeCounter/2)+
+        return "Data description:\t\t\t" + this.dataName +
+                "\nSorter name:\t\t\t" + this.sorterName +
+                "\nnumber of swaps:\t\t" + this.concatenate(this.changeMilCounter, this.changeCounter/2)+
                 "\nnumber of comparisons:\t" + this.concatenate(this.compareMilCounter, this.compareCounter);
     }
 
@@ -48,5 +88,11 @@ public class Benchmark implements Observer {
         String result = String.valueOf(milPart);
         for (int i = String.valueOf(rest).length(); i < 7; i++) result += "0";
         return result + rest;
+    }
+
+    private List<Integer> loadList(String filePath){
+        List<Integer> result = new ArrayList<>();
+
+        return result;
     }
 }

@@ -32,6 +32,11 @@ public class BubbleSort<T> implements ListSorter<T> {
     }
 
     @Override
+    public void setComparator(Comparator<T> comparator) {
+        this.comparator = comparator;
+    }
+
+    @Override
     public String getName() {
         return "Bubble Sort";
     }

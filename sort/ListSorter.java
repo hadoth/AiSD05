@@ -1,5 +1,7 @@
 package sort;
 
+import utils.comparator.Comparator;
+
 import java.util.List;
 
 /**
@@ -7,5 +9,6 @@ import java.util.List;
  */
 public interface ListSorter<T> {
     List<T> sort (List<T> list);
+    void setComparator(Comparator<T> comparator);
     String getName();
 }

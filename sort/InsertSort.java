@@ -37,6 +37,11 @@ public class InsertSort<T> implements ListSorter<T> {
     }
 
     @Override
+    public void setComparator(Comparator<T> comparator) {
+        this.comparator = comparator;
+    }
+
+    @Override
     public String getName() {
         return "Insert Sort";
     }
