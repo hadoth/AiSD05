@@ -7,8 +7,12 @@ import utils.list.ObservableList;
 import utils.observer.Observable;
 import utils.observer.Observer;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Created by Karol Pokomeda on 2017-04-22.
@@ -92,7 +96,16 @@ public class Benchmark implements Observer {
 
     private List<Integer> loadList(String filePath){
         List<Integer> result = new ArrayList<>();
-
+        File inputFile = new File(filePath);
+        try(FileReader fileIn = new FileReader(inputFile);
+            Scanner dataIn = new Scanner(fileIn)){
+            while(dataIn.hasNextLine()){
+                String[] inputText = dataIn.nextLine().split(",");
+                for (String number : inputText) result.add(Integer.valueOf(number));
+            }
+        } catch (IOException e){
+            throw new IllegalArgumentException("File not found or data corrupted");
+        }
         return result;
     }
 }

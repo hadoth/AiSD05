@@ -1,6 +1,7 @@
 package bootstrap;
 
 import sort.BubbleSort;
+import sort.InsertSort;
 import sort.ListSorter;
 import sort.SelectSort;
 import utils.Benchmark;
@@ -18,20 +19,34 @@ import java.util.List;
  */
 public class ListFiveExOneTest {
     public static void main(String[] args) {
-        Benchmark sorterBenchmark = new Benchmark();
-
+        String[] filePath = {
+                "ALMOST_SORTED_1000_ASCENDING.csv",
+                "ALMOST_SORTED_1000_DESCENDING.csv",
+                "CONST_1000_ASCENDING.csv",
+                "CONST_1000_DESCENDING.csv",
+                "FULLY_RANDOM_1000_ASCENDING.csv",
+                "FULLY_RANDOM_1000_DESCENDING.csv",
+                "SORTED_1000_ASCENDING.csv",
+                "SORTED_1000_DESCENDING.csv",
+                "STAIRS_1000_ASCENDING.csv",
+                "STAIRS_1000_DESCENDING.csv"
+        };
         NaturalComparator<Integer> comparator = new NaturalComparator<>();
 
-        int counter = 100;
+        ArrayList<ListSorter<Integer>> sorters = new ArrayList<>();
+        sorters.add(new BubbleSort<>(comparator));
+        sorters.add(new SelectSort<>(comparator));
+        sorters.add(new InsertSort<>(comparator));
 
-        List<Integer> listToSort = new ArrayList<>();
-        for (int i = 0; i < counter; i++) listToSort.add((int) (Math.random() * 10 * counter));
+        Benchmark sorterBenchmark = new Benchmark();
 
-        System.out.println(Arrays.toString(listToSort.toArray()));
+        for (String singleFilePath : filePath) {
+            for (ListSorter<Integer> sorter : sorters) {
+                sorterBenchmark.evaluate(sorter, comparator, singleFilePath);
 
-        sorterBenchmark.evaluate(new BubbleSort<>(comparator), comparator, listToSort);
-
-        System.out.println(sorterBenchmark.report());
-        System.out.println(Arrays.toString(listToSort.toArray()));
+                System.out.println(sorterBenchmark.report());
+                System.out.println();
+            }
+        }
     }
 }
