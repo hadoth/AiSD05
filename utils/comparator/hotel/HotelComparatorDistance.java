@@ -1,11 +1,12 @@
 package utils.comparator.hotel;
 
 import hotel.Hotel;
+import utils.comparator.Comparator;
 
 /**
  * Created by Karol on 2017-04-22.
  */
-public class HotelComparatorDistance  extends HotelComparator {
+public class HotelComparatorDistance  implements Comparator<Hotel> {
     private double xCoordinate;
     private double yCoordinate;
 

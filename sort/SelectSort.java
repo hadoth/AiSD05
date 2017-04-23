@@ -30,7 +30,6 @@ public class SelectSort<T> implements ListSorter<T> {
             swap(list, maxIndex, rightEdge);
             leftEdge++;
             rightEdge--;
-            System.out.println(Arrays.toString(list.toArray()));
         }
         return list;
     }

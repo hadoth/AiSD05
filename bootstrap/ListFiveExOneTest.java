@@ -1,7 +1,5 @@
 package bootstrap;
 
-import sort.BubbleSort;
-import sort.InsertSort;
 import sort.ListSorter;
 import sort.SelectSort;
 import utils.Benchmark;
