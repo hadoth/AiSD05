@@ -32,14 +32,16 @@ public class ShakerSort<T> implements ListSorter<T> {
                 }
             }
             topBound--;
-            for (int i = lastSwapUp; i > bottomBound; i--){
-                if (this.comparator.compare(list.get(i-1), list.get(i)) > 0) {
-                    swap(list, i, i-1);
-                    isSorted = false;
-                    lastSwapDown = i;
+            if (!isSorted){
+                for (int i = lastSwapUp; i > bottomBound; i--){
+                    if (this.comparator.compare(list.get(i-1), list.get(i)) > 0) {
+                        swap(list, i, i-1);
+                        isSorted = false;
+                        lastSwapDown = i;
+                    }
                 }
+                bottomBound++;
             }
-            bottomBound++;
         }
         return list;
     }

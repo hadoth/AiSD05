@@ -1,9 +1,6 @@
 package bootstrap;
 
-import sort.BubbleSort;
-import sort.InsertSort;
-import sort.ListSorter;
-import sort.SelectSort;
+import sort.*;
 import utils.Benchmark;
 import utils.comparator.Comparator;
 import utils.comparator.NaturalComparator;
@@ -37,6 +34,7 @@ public class ListFiveExOneTest {
         sorters.add(new BubbleSort<>(comparator));
         sorters.add(new SelectSort<>(comparator));
         sorters.add(new InsertSort<>(comparator));
+        sorters.add(new ShakerSort<>(comparator));
 
         Benchmark sorterBenchmark = new Benchmark();
 
